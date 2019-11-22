@@ -48,26 +48,21 @@ def parse_star_parameters(line, star):
     **star** — объект звезды.
     """
     str = line
-    n = len(str)
-    tt = ''
     proc = ''
-    r = ''
-    color = ''
-    m = ''
-    x = ''
-    y = ''
-    vx = ''
-    vy = ''
-    #while tt != ' ':
-    print(str[0])
-    print(str[len(str)-1])
+    star.R = ''
+    star.color = ''
+    star.m = ''
+    star.x = ''
+    star.y = ''
+    star.vx = ''
+    star.vy = ''
     i=0
     while str[i] != ' ':
         proc = proc + str[i]
         i += 1
     i += 1
     while str[i] != ' ':
-        star.r = star.r + str[i]
+        star.R = star.R + str[i]
         i += 1
     i += 1
     while str[i] != ' ':
@@ -94,7 +89,7 @@ def parse_star_parameters(line, star):
         star.vy = star.vy + str[i]
         i += 1
     star.vy = star.vy +str[len(str)-1]
-    star.r = float(star.r)
+    star.R = float(star.R)
     star.m = float(star.m)
     star.x = float(star.x)
     star.y = float(star.y)
@@ -122,26 +117,21 @@ def parse_planet_parameters(line, planet):
     **planet** — объект планеты.
     """
     str = line
-    n = len(str)
-    tt = ''
     proc = ''
-    r = ''
-    color = ''
-    m = ''
-    x = ''
-    y = ''
-    vx = ''
-    vy = ''
-    #while tt != ' ':
-    print(str[0])
-    print(str[len(str)-1])
+    planet.R = ''
+    planet.color = ''
+    planet.m = ''
+    planet.x = ''
+    planet.y = ''
+    planet.vx = ''
+    planet.vy = ''
     i=0
     while str[i] != ' ':
         proc = proc + str[i]
         i += 1
     i += 1
     while str[i] != ' ':
-        planet.r = planet.r + str[i]
+        planet.R = planet.R + str[i]
         i += 1
     i += 1
     while str[i] != ' ':
@@ -168,7 +158,7 @@ def parse_planet_parameters(line, planet):
         planet.vy = planet.vy + str[i]
         i += 1   
     planet.vy = planet.vy +str[len(str)-1]
-    planet.r = float(planet.r)
+    planet.R = float(planet.R)
     planet.m = float(planet.m)
     planet.x = float(planet.x)
     planet.y = float(planet.y)
@@ -189,7 +179,7 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
-            txt = obj.type + " " + str(obj.r) + " " + obj.color + " " + str(obj.m) + " " + str(obj.x) + " " + str(obj.y) + " " + str(obj.vx) + " " + str(obj.vy) 
+            txt = obj.type + " " + str(obj.R) + " " + obj.color + " " + str(obj.m) + " " + str(obj.x) + " " + str(obj.y) + " " + str(obj.vx) + " " + str(obj.vy) 
             print(out_file, txt)
             
             # FIXME: should store real values
