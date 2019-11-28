@@ -21,8 +21,8 @@ def calculate_force(body, space_objects):
         r = ((body.x - obj.x)**2 + (body.y - obj.y)**2)**0.5
         x = body.x - obj.x
         y = body.y - obj.y
-        body.Fx += (x/r**3)* gravitational_constant * obj.m * body.m # FIXME: нужно вывести формулу...
-        body.Fy += (y/r**3)* gravitational_constant * obj.m * body.m  # FIXME: нужно вывести формулу...
+        body.Fx -= (x/r**3)* gravitational_constant * obj.m * body.m # FIXME: нужно вывести формулу...
+        body.Fy -= (y/r**3)* gravitational_constant * obj.m * body.m  # FIXME: нужно вывести формулу...
 
 
 def move_space_object(body, dt):
@@ -57,7 +57,6 @@ def recalculate_space_objects_positions(space_objects, dt):
         calculate_force(body, space_objects)
     for body in space_objects:
         move_space_object(body, dt)
-
 
 if __name__ == "__main__":
     print("This module is not for direct call!")
